@@ -126,7 +126,7 @@ describe('GET /todos', () => {
 
 describe('GET /todos/:id', () => {
     
-    if('Should return todo doc', (done) => {
+    it('Should return todo doc', (done) => {
 
         request(app) 
         
