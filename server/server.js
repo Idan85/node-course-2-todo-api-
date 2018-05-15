@@ -1,5 +1,7 @@
 require('./config/config');
 
+const { mongoose } = require('./db/mongoose.js')
+
 
 const _ = require('lodash')
 
