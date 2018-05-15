@@ -38,15 +38,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
 
     //db.collection('Users').findOneAndDelete({_id: new ObjectID("5af2d11cfe4e541574434f81")}).then((results) =>{
 
-        //db.collection('Users').findOneAndDelete({_id: 123}).then((results) =>{
+        db.collection('Users').findOneAndDelete({_id: 123}).then((results) =>{
 
 // can set the id to a regular number like do about ({_id: 123}), but need to use a regular number to query it too.
 
-         db.collection('Users').findOneAndDelete({
+        //  db.collection('Users').findOneAndDelete({
 
-         _id: new ObjectID("57ac8d47878a299e5dc21bc8")
+        //  _id: new ObjectID("57ac8d47878a299e5dc21bc8")
 
-         }).then((results) => {
+        //  }).then((results) => {
 
 
         console.log(JSON.stringify(results, undefined, 2));
