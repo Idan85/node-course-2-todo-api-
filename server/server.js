@@ -116,7 +116,9 @@ app.patch('/todos/:id', (req, res) => {  // patch ALLOW TO UPDATE todo ITEMS.
     
     var id = req.params.id; 
     
-    var body = _.pick(req.body, ['text', 'completed']);
+    //var body = _.pick(req.body, ['text', 'completed']);
+
+    let body = _.pick(req.body, ['text', 'completed']);
 
     if (!ObjectID.isValid(id)) {
         
