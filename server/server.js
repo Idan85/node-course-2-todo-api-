@@ -22,6 +22,8 @@ var {Todo} = require('./models/todo');
 
 var {User} = require('./models/user'); 
 
+var {authenticate} = require('./middleware/authenticate');
+
 
 var app = express();
 
@@ -175,7 +177,54 @@ app.patch('/todos/:id', (req, res) => {  // patch ALLOW TO UPDATE todo ITEMS.
             
             res.status(400).send(e);
 
+// res.header TAKES key value & req.header GETTING VALUE.
+
         })
+    });
+
+//     var authenticate = (req, res, next) => {
+        
+//         var token = req.header('x-auth'); 
+        
+//         User.findByToken(token).then((user) => {
+        
+//         if (!user) {
+
+//             return Promise.reject();
+//         }
+
+//         req.user = user;
+
+//         req.token = token;
+
+//     }).catch((e) => {
+
+//         res.status(401).send();
+//     });
+// };
+
+    app.get('/users/me', authenticate, (req, res) => {
+
+        res.send(req.user);
+        
+        // var token = req.header('x-auth'); 
+        
+        // User.findByToken(token).then((user) => {
+
+        //     if (!user) {
+
+        //         return Promise.reject(); 
+
+        //     }
+// findByToken TAKE token VALUE & GOING FIND APPROPRIATE USER RELATED TO
+// THAT token RETURNING IT INSIDE OF promise callbacks. 
+
+        //     res.send(user);
+
+        // }).catch((e) => {
+            
+        //     res.status(401).send();
+        // });   
     });
  
 
